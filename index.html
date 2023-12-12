@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Blogger Text to Speech - PingTamizha</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://drive.google.com/uc?export=download&id=1hbVL5lJEVz3P1nIFWQCCkq3canWninDt"
+        type="image/x-icon">
+    <!-- Link Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap" rel="stylesheet">
+</head>
+
+<body style="font-family: 'Bricolage Grotesque', sans-serif;">
+
+    <div style="text-align: center;">
+        <h2>Blogger Text to Speech Generator</h2>
+        <p>Help: <a href="https://pingtamizha.com/" target="_blank">Contact Tamizha</a></p>
+    </div>
+
+    <div style="text-align: center;">
+        <hr style="margin-top: 50px;margin-bottom: 30px;">
+        <h3>Enter Content Code</h3>
+        <textarea id="content" rows="10" cols="100"></textarea><br><br>
+        <button onclick="generate()">Generate</button>
+        <h2>Result</h2>
+    </div>
+    <p id="result" style="font-size: smaller;"></p>
+
+    <script>
+
+        function generate() {
+            var getContent = document.getElementById("content").value;
+            var regenerate = `<button onclick="speak()">Play</button><br><br><div id="voiceContent">${getContent}</div><script>function htmlToText(html){var temp=document.createElement("div");temp.innerHTML=html;return temp.textContent||temp.innerText||"";}function speak(){var html=document.getElementById("voiceContent").innerHTML;var text=htmlToText(html);var utterance=new SpeechSynthesisUtterance();utterance.text=text;window.speechSynthesis.speak(utterance);}<\/script>`;
+            document.getElementById('result').innerText = regenerate
+        }
+
+    </script>
+
+</body>
+
+</html>
